@@ -6,6 +6,7 @@ import cors from "cors";
 import path from "path";
 
 import { connectDb } from "./lib/db.js";
+import bodyParser from "body-parser";
 
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
@@ -15,6 +16,9 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
+
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 app.use(express.json());
 app.use(cookieParser());
