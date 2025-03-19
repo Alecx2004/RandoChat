@@ -10,6 +10,7 @@ import messageRoutes from "./routes/message.route.js";
 import { connectDb } from "./lib/db.js";
 import bodyParser from "body-parser";
 import {app, server} from "./lib/socket.js"
+import { fileURLToPath } from 'url'
 
 dotenv.config();
 
